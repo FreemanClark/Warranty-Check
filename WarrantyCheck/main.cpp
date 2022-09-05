@@ -15,6 +15,9 @@ int main(int args, string arg)
 
     } else if(arg == "-iv" || arg == "--invalid") {
 
+    } else if(arg == "-w" || arg == "--write") {
+        Warranty entry;
+        entry.tofile();
     }
     return 0;
 }

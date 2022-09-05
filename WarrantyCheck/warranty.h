@@ -8,17 +8,26 @@ class Warranty
     public:
         /** Default constructor */
         Warranty(istream& in);
+        Warranty(); // constructor for new Warranty
         /** Default destructor */
         virtual ~Warranty();
 
-        /** Access date
+        /** Access buydate
          * \return The current value of date
          */
-        string Getdate() { return date; }
-        /** Set date
+        string GetBuydate() { return buydate; }
+        /** Set buydate
          * \param val New value to set
          */
-        void Setdate(string val) { date = val; }
+        void SetBuydate(string val) { buydate = val; }
+        /** Access end_date
+         * \return The current value of date
+         */
+        string GetEnddate() { return end_date; }
+        /** Set end_date
+         * \param val New value to set
+         */
+        void SetEnddate(string val) { end_date = val; }
         /** Access terms
          * \return The current value of terms
          */
@@ -35,15 +44,17 @@ class Warranty
          * \param val New value to set
          */
         void Setitem(string val) { item = val; }
-
+        //get a summary of the Warranty
         string getSummary();
+        void tofile(string filename);
 
     protected:
 
     private:
-        string date; //!< Member variable "date"
-        string terms; //!< Member variable "terms"
-        string item; //!< Member variable "item"
+        string buydate; //when the item was bought
+        string end_date; //expiration date
+        string terms; //terms of the warranty
+        string item; // what is the item?
 };
 
 #endif // WARRANTY_H
